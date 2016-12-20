@@ -1,0 +1,21 @@
+<form (ngSubmit)="submit()" #hiloForm="ngForm">
+<p>The generated number is: {{target}}</p>
+<br/>
+<p>Number of attempts: {{countOfAttempts}}</p>
+<br/>
+<div>
+  <label>Guess:  </label>
+  <input [(ngModel)]="latestGuess" placeholder="1-100" type="number" min="1" max="100" #name="ngModel" name="name" required>
+</div>
+<button  type="submit">Submit</button>
+  <table>
+    <tr>
+      <th>Guess</th>
+      <th>Result</th>
+    </tr>
+    <tr *ngFor="let attempt of attempts">
+      <td>{{attempt.guess}}</td>
+      <td>{{attempt.result}}</td>
+    </tr>
+  </table>
+</form>

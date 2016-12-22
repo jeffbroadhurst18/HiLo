@@ -1,0 +1,10 @@
+.leftTable{
+    float: left;
+    width: 500px;
+}
+
+.rightTable{
+    float: right;
+    padding-right: 500px;
+    height: 200px;
+}

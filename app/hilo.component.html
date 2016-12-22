@@ -1,21 +1,40 @@
 <form (ngSubmit)="submit()" #hiloForm="ngForm">
-<p>The generated number is: {{target}}</p>
-<br/>
-<p>Number of attempts: {{countOfAttempts}}</p>
-<br/>
-<div>
-  <label>Guess:  </label>
-  <input [(ngModel)]="latestGuess" placeholder="1-100" type="number" min="1" max="100" #name="ngModel" name="name" required>
-</div>
-<button  type="submit">Submit</button>
-  <table>
-    <tr>
-      <th>Guess</th>
-      <th>Result</th>
-    </tr>
-    <tr *ngFor="let attempt of attempts">
-      <td>{{attempt.guess}}</td>
-      <td>{{attempt.result}}</td>
-    </tr>
-  </table>
+  <p>The generated number is: {{target}}</p>
+  <br/>
+  <p>Number of attempts: {{countOfAttempts}}</p>
+  <br/>
+  <div>
+    <label>Guess:  </label>
+    <input [(ngModel)]="latestGuess" placeholder="1-100" type="number" min="1" max="100" #name="ngModel" name="name" required>
+  </div><br/>
+  <button type="submit">Submit</button><br/>
+  <div class="leftTable">
+    <table>
+      <tr>
+        <th>Guess</th>
+        <th>Result</th>
+      </tr>
+      <tr *ngFor="let attempt of attempts">
+        <td>{{attempt.guess}}</td>
+        <td>{{attempt.result}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="rightTable">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
+      <tr *ngFor="let hiScore of highScores">
+        <td>{{hiScore.name}}</td>
+        <td>{{hiScore.attempts}}</td>
+      </tr>
+    </table>
+  </div>
 </form>
+<br/>
+<div *ngIf="correctAnswer" class="leftTable">
+  <input type="text" [(ngModel)]="personName" placeholder="Enter your name">
+  <button (click)="displayHighScores()">Enter</button>
+</div>

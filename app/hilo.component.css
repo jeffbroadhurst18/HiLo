@@ -8,3 +8,27 @@
     padding-right: 500px;
     height: 200px;
 }
+
+.hilo-page{
+    background-color:white;
+    color: darkblue;
+}
+
+.hilo-table-heading{
+    background-color: lightgrey;
+}
+
+.hilo-td{
+    border: 1px solid darkgray; 
+}
+
+.hilo-table{
+    border: 2px solid darkgrey;
+    background: #dddddd;
+}
+
+.hilo-submit{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+

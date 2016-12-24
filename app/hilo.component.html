@@ -1,40 +1,55 @@
-<form (ngSubmit)="submit()" #hiloForm="ngForm">
-  <p>The generated number is: {{target}}</p>
-  <br/>
-  <p>Number of attempts: {{countOfAttempts}}</p>
-  <br/>
-  <div>
-    <label>Guess:  </label>
-    <input [(ngModel)]="latestGuess" placeholder="1-100" type="number" min="1" max="100" #name="ngModel" name="name" required>
-  </div><br/>
-  <button type="submit">Submit</button><br/>
-  <div class="leftTable">
-    <table>
-      <tr>
-        <th>Guess</th>
-        <th>Result</th>
-      </tr>
-      <tr *ngFor="let attempt of attempts">
-        <td>{{attempt.guess}}</td>
-        <td>{{attempt.result}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="rightTable">
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Score</th>
-      </tr>
-      <tr *ngFor="let hiScore of highScores">
-        <td>{{hiScore.name}}</td>
-        <td>{{hiScore.attempts}}</td>
-      </tr>
-    </table>
-  </div>
-</form>
-<br/>
-<div *ngIf="correctAnswer" class="leftTable">
-  <input type="text" [(ngModel)]="personName" placeholder="Enter your name">
-  <button (click)="displayHighScores()">Enter</button>
+<div class="container-fluid hilo-page">
+  <form (ngSubmit)="submit()" #hiloForm="ngForm" class="form-group">
+    <div class="row">
+      <div class="col-md-3">
+        <p>The generated number is: {{target}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <label>Guess:  </label>
+        <input [(ngModel)]="latestGuess" placeholder="1-100" type="number" min="1" max="100" #name="ngModel" name="name" class="form-control"
+          required>
+        <button type="submit" class="hilo-submit">Submit</button>
+      </div>
+      <div class="col-md-1"></div>
+      <div *ngIf="correctAnswer" class="col-md-4">
+        <label>Enter your name:  </label>
+        <input type="text" [(ngModel)]="personName" placeholder="Enter your name" class="form-control" name="personName">
+        <button (click)="displayHighScores()" class="hilo-submit" type="submit">Enter</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p>Number of attempts: {{countOfAttempts}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <table class="table hilo-table">
+          <tr>
+            <th class="hilo-table-heading hilo-td">Guess</th>
+            <th class="hilo-table-heading hilo-td">Result</th>
+          </tr>
+          <tr *ngFor="let attempt of attempts">
+            <td class="hilo-td">{{attempt.guess}}</td>
+            <td class="hilo-td">{{attempt.result}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <table class="hilo-table table">
+          <tr>
+            <th class="hilo-table-heading hilo-td">Name</th>
+            <th class="hilo-table-heading hilo-td">Score</th>
+          </tr>
+          <tr *ngFor="let hiScore of highScores">
+            <td class="hilo-td">{{hiScore.name}}</td>
+            <td class="hilo-td">{{hiScore.attempts}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </form>
 </div>

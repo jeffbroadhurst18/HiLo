@@ -7,7 +7,7 @@ import { Score } from './score';
     moduleId: module.id,
     selector: 'my-hilo',
     templateUrl: 'hilo.component.html',
-    styleUrls: ['hilo.component.css'],
+    styleUrls: ['hilo.component.css','https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.css'],
 })
 
 export class HiloComponent implements OnInit {
